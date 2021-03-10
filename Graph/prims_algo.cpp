@@ -3,6 +3,16 @@ Minimum Spanning tree is (minimum sum) tree with V-1 edges
 Total sum of all the edges must be minimum in O(ElnV)
 E-Edges V-Vertices
 
+NOTE : We can't find minimal spanning tree using distra's algo
+    2
+O-------A
+    10 / \ 11
+      /   \
+     B-----C
+        2
+Using dijstar's if we start from O we will have edges O-A,A-B,A-C 
+as from O-B dist = 12/15 and O-C distance = 14/13
+*/
 */
 #include<bits/stdc++.h>
 #define LIM 3000

@@ -2,11 +2,12 @@
 
 using namespace std;
 #define LIM 1007
-typedef enum {NOCOLOR,BLUE,RED} col;
+typedef enum {WHITE,GREY,BLACK} col;
+// we try ro color whole graph in 2 colors grey and black
 
 
 vector<int> adj[LIM];
-vector<col> color(LIM,NOCOLOR);
+vector<col> color(LIM,WHITE);
 
 
 void addEdge(int u, int v) 
@@ -23,7 +24,7 @@ void bfs()
     for(int i=1;i<LIM;i++)
     {
         // if we find a new part of G
-        if(color[i] == NOCOLOR)
+        if(color[i] == WHITE)
             q.push(i);
 
         while(!q.empty())
@@ -32,17 +33,17 @@ void bfs()
             q.pop();
 
             // If no color is given give a random color
-            if(color[u] == NOCOLOR)
-                color[u] = RED; 
+            if(color[u] == WHITE)
+                color[u] = GREY; 
 
             for(int v : adj[u])
             {
-                if(color[v] == NOCOLOR)
+                if(color[v] == WHITE)
                 {
-                    if(color[u] == RED)
-                        color[v] = BLUE;
+                    if(color[u] == GREY)
+                        color[v] = BLACK;
                     else
-                        color[v] = RED;
+                        color[v] = GREY;
 
                     q.push(v);
                 }
