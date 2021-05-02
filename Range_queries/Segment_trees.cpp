@@ -66,8 +66,12 @@ void update_point(int node_indx,int a,int node_lower, int node_upper, int val)
         return ;
 
     int mid=(node_lower+node_upper)/2;
-    update_point(2*node_indx,a,node_lower,mid,val);
-    update_point(2*node_indx+1,a,mid+1,node_upper,val);
+    
+    // if a is between lower and mid
+    if(node_lower >= a and a <= mid) 
+        update_point(2*node_indx,a,node_lower,mid,val);
+    else
+        update_point(2*node_indx+1,a,mid+1,node_upper,val);
 
     seg[node_indx]=seg[2*node_indx]+seg[2*node_indx+1];
 }
