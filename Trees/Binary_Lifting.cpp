@@ -1,16 +1,15 @@
-// Note : Is apllicable on;y on trees
+// Note : Is apllicable only on trees
 // Precomutation : NLog(N)
-// Query output : Log(N) 
+// Query output (to find LCA as well as kth ancestor) : Log(N) 
 // N is basically the max height possible
 // Q. Find element kth place above x.
+// Can also be used to find LCA(Lowest Comman Ancestor) for a,b:
+
 
 #include<bits/stdc++.h>
 const int LIM = (int)2e5+3;
 
 using namespace std;
-
-// number of vertices
-int V;
 
 // elements of trees are stored from 0
 vector<int> tree[LIM];
@@ -47,7 +46,7 @@ void  binary_lifting(int u, int pa)
 
 // returns the node_val at dist h above node
 // if no node is present returns -1
-int ans_query(int node, int h)
+int getKthAncestor(int node, int h)
 {
     // node should not be -1
     for(int i=0;i<20 and node != -1;i++)
@@ -59,9 +58,38 @@ int ans_query(int node, int h)
     return node;
 }
 
+// returns Lowest common Ancestor for nodes a,b
+int LCA(int a, int b)
+{
+    if(depth[a] < depth[b])
+        swap(a,b);
+    
+    int diff = depth[a] - depth[b];
+
+    // move a diff levels up till both a and b are not on same level
+    a = getKthAncestor(a,diff);
+
+    // imp condition
+    if(a == b)
+        return a;
+
+    // move up by 2^k steps only if on moving 2^k steps up a is not equals b.
+    for(k=19;k>=0;k--)
+    {
+        if(up[a][k] != up[b][k])
+        {
+            a = up[a][k];
+            b = up[b][k];
+        }
+    }
+
+    // we have reached one level below of LCA
+    return up[a][0];
+}
+
 int main()
 {
-    int i,src,u,v,q,x,k;
+    int i,src,u,v,q,x,k,V;
 
     cout<<"Enter number of vertices: ";
     cin>>V;
@@ -82,7 +110,7 @@ int main()
     for(i=0;i<q;i++)
     {
         cin >> x >> k;
-        cout << "Node :" << ans_query(x,k) << " is at a dist " 
+        cout << "Node :" << getKthAncestor(x,k) << " is at a dist " 
         << k << "from " << x << endl;
     }
 }
