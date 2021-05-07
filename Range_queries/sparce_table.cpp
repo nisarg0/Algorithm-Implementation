@@ -1,4 +1,5 @@
 // Reference -> https://www.youtube.com/watch?v=2EpX9LkO2T0
+// Refernece -> https://youtu.be/0jWeUdxrGm4
 // NOTE : We can't update efficiently
 // Precomutation- O(NLogN) Query - O(LogN)
 // If query Function asked is Idempotent(F(a,a)=a) we can solve 1 query in O(1*op). op is time taken by the operator(gcd takes more time) 
@@ -26,9 +27,11 @@ int f(int a, int b)
 // the ranges [i,i+2^(j−1)−1] and [i+2^(j−1),i+2^(j−1)], both of length  2^(j−1).
 void init(int arr[],int n)
 {
+    // length of ruery is 1
     for (int i = 0; i < n; i++)
-        st[i][0] = (arr[i]);
+        st[i][0] = arr[i];
 
+    // j length query and strts from i
     for (int j = 1; j <= K; j++)
         for (int i = 0; i + (1 << j) <= n; i++)
             st[i][j] = f(st[i][j-1], st[i + (1 << (j - 1))][j - 1]);
@@ -49,13 +52,15 @@ int query_normal(int l,int r)
     }
     return ans;
 }
-
+// We are taking advantage that we don't need to keep intervals disjoint. (Intervals me overlap)
 // we can split the range [1,6] into the ranges [1,4] and [3,6]
 // Both in power of 2 (we used data from [3,4] again) So must be idempotent
 int query_idempotent(int l, int r)
 {
+    // j denotes the lenth of interval
     int j = log2(r-l+1);
-    return f(st[l][j], st[r+1-(1<<j)][j]);;
+    // r - 2^j + 1  the start indx of next range of length j.
+    return f(st[l][j], st[r-(1<<j)+1][j]);;
 }
 
 int main(void)
