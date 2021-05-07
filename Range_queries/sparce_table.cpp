@@ -33,7 +33,7 @@ void init(int arr[],int n)
 
     // j length query and strts from i
     for (int j = 1; j <= K; j++)
-        for (int i = 0; i + (1 << j) <= n; i++)
+        for (int i = 0; i + (1 << (j-1)) <= n; i++)     // Note : the loop termination condn.
             st[i][j] = f(st[i][j-1], st[i + (1 << (j - 1))][j - 1]);
 }
 
