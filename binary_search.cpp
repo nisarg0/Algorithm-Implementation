@@ -1,6 +1,7 @@
 // Question link -> https://community.topcoder.com/stat?c=problem_statement&pm=1901&rd=4650
 // Artical link -> https://www.topcoder.com/community/competitive-programming/tutorials/binary-search
 // Ref link -> https://www.youtube.com/watch?v=GU7DpgHINWQ
+// Ref link -> https://leetcode.com/discuss/interview-question/1322500/5-variations-of-Binary-search-(A-Self-Note)/?fbclid=IwAR1tgOv9b7dNA9dyqBEHCmNdqkGrBxItE7vqBRVqL0Rk6UE65_fLO8J1JI8
 
 // Here in binary search we basically want o function that return boolean value if it is ans yes or no
 // And we want the indxe from where true begins or false begins
