@@ -1,5 +1,5 @@
 // Link : https://leetcode.com/problems/jump-game-ii/
-// Reach from 0th index to nth index with minimum jumps
+// Reach from 0th index to nth index with minimum number of jumps
 // arr[i] represents max jump possible from ith index.
 
 #include<bits/stdc++.h>
