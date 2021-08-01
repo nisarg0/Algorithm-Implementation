@@ -5,6 +5,9 @@
 // Q. Find element kth place above x.
 // Can also be used to find LCA(Lowest Comman Ancestor) for a,b:
 
+// Demo que -->https://www.codechef.com/LTIME98B/problems/LGSEG
+// If an array is to be divided into many segments have a try if binary lifting can help somhow 
+
 
 #include<bits/stdc++.h>
 const int LIM = (int)2e5+3;
