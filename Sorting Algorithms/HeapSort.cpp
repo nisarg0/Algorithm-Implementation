@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void heapify(int arr[], int n, int i)
+void heapify(vector<int> &arr, int n, int i)
 {
     int largest = i; // Initialize largest as root
     int l = 2 * i + 1; // left = 2*i + 1
@@ -29,7 +29,7 @@ void heapify(int arr[], int n, int i)
 }
  
 // main function to do heap sort
-void heapSort(int arr[], int n)
+void heapSort(vector<int> &arr, int n)
 {
     // Build heap (rearrange array)
     for (int i = n / 2 - 1; i >= 0; i--)
@@ -48,12 +48,18 @@ void heapSort(int arr[], int n)
     }
 }
 
+void print(vector<int> arr){
+    cout <<  "Sorted Array is : ";
+    for(int i=0;i<arr.size();i++)
+        cout << arr[i] <<" ";
+    cout << endl;
+}
+
 int main(){
     int n = 5;
-    int arr[n] = {10,3,2,5,7};
+    vector<int> arr{10,3,2,5,7};
 
     heapSort(arr,n);
 
-    for(int i=0;i<n;i++)    
-        cout << arr[i] << " ";
+    print(arr);
 }
