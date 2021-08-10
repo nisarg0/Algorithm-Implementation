@@ -13,7 +13,6 @@ O-------A
 Using dijstar's if we start from O we will have edges O-A,A-B,A-C 
 as from O-B dist = 12/15 and O-C distance = 14/13
 */
-*/
 #include<bits/stdc++.h>
 #define LIM 3000
 #define INF 1e5+3

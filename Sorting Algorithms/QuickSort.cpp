@@ -1,6 +1,8 @@
 // O(nlog(n))  --> average time Complexcity 
 // O(n^2)      --> worst case (If 1st element is chosen as pivot and arr is sorted)
 // O(1)        --> Extra Space 
+// Link --> https://www.hackerearth.com/practice/algorithms/sorting/quick-sort/tutorial/
+// Link --> https://www.youtube.com/watch?v=if40LxQ8_Xo&t=1171s
 
 #include<bits/stdc++.h>
 using namespace std;
