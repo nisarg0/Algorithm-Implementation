@@ -28,6 +28,9 @@ so find this point using binary search
 
 */
 
+#include<bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     double findMedian(vector<int>&a,vector<int>&b){
