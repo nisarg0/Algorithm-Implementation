@@ -1,4 +1,6 @@
 // Reference --> https://www.youtube.com/watch?v=U66U1-umNbQ&t=1s
+// Reference --> https://www.youtube.com/watch?v=V343UXw4P3Y
+
 #include<bits/stdc++.h> 
 using namespace std;
 
@@ -101,7 +103,10 @@ int pivotedBinarySearch(vector<int> &arr, int target){
         return it-arr.begin();
 }
 
+
+
 int main(){
+    // Array is sorted then rotated task is to find index of key element.
     vector<int> arr = { 5, 6, 7, 8, 9, 10, 1, 2, 3 };
     cout << "Index of the element is : "<< pivotedBinarySearch(arr, 2);
 
