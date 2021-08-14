@@ -17,7 +17,6 @@ public:
         int n = s.length();
         bool dp[n][n];
         memset(dp,false,sizeof(dp));
-        int len=0;
         int start = -1;
         int end = -1;
         for(int g=0;g<n;g++)
@@ -31,27 +30,12 @@ public:
                 
                 else if(g==1)
                 {
-                    if(s[i]==s[j])
-                    {
-                        dp[i][j] = true;
-                    }
-                    else
-                    {
-                        dp[i][j] = false;
-                    }
+                    dp[i][j] = (s[i]==s[j]);
                 }
                 
                 else
                 {
-                    if(s[i]==s[j] && dp[i+1][j-1])
-                    {
-                        dp[i][j] = true;
-                    }
-                    
-                    else
-                    {
-                        dp[i][j] = false;
-                    }
+                    dp[i][j] = (s[i]==s[j] && dp[i+1][j-1]);
                 }
                 
                 if(dp[i][j])
