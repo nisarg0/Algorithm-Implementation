@@ -1,6 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Time Complexcity = O(d*(n)) 
+// where d is max no. of didgits in a number and n is size of ar
+// Ref -> https://www.youtube.com/watch?v=a5e7RgCdel0
+
+
 void countSort(vector<int>& arr, int exp) {
     vector<int> freq(10,0);
     vector<int> ans(arr.size());
