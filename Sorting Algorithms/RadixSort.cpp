@@ -5,7 +5,11 @@ using namespace std;
 // where d is max no. of didgits in a number and n is size of ar
 // Ref -> https://www.youtube.com/watch?v=a5e7RgCdel0
 
+// Question -> Max Gap Leetcode
+// We use pegion hole principle + Radix Sort to get ans in O(n) time.
 
+// elements inside a bucket = (max_val-min_val)/n-1;
+// Note bucket index (freq_index here) can be caluclated as (arr[i]-min)/interval
 void countSort(vector<int>& arr, int exp) {
     vector<int> freq(10,0);
     vector<int> ans(arr.size());
