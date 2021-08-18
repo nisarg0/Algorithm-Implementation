@@ -2,9 +2,11 @@
 using namespace std;
 
 /* solution is based on gap strategy
+Reference  --> https://www.youtube.com/watch?v=WpYHNHofwjc
 
 Every diagonal of the matrix can be uniquely identified by a gap value which represents the gap between i and j 
 The gap 0 basically represents the individual elements which are themselves palindromes
+ex. str = abcda  gaps = a | b | c | d | a ==> 4 gaps (cnt of |)
 Now for any particular i,j it is a palindrome if str from i+1 to j-1 is a palindrome and characters at i and j are equal
 So, dp[i][j] = dp[i+1][j-1] && str[i]==str[j]
 Here dp[i+1][j-1] represents the diagonally lower element which we have already computed in previous gap iterations
