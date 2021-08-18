@@ -24,7 +24,8 @@ We have not written all of these algos ourselves. This is merely a small collect
     
 ## Support
 
-If you find some error do rasie issue [here](https://github.com/nisarg0/algos_implementation/issues)
+If you find some error do rasie issue [here](https://github.com/nisarg0/algos_implementation/issues).
+
 For support, email nisarggogate212@gmail.com or dipleshmankape@gmail.com
 
   
