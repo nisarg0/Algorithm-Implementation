@@ -15,10 +15,11 @@ We have not written all of these algos ourselves. This is merely a small collect
 - Tries | Segment Trees (Trees), LRU Cache (OS).
 
   
-## Thanks
+### Thanks
 - [Katik Arora](https://www.youtube.com/user/MrHulasingh25)
 - [Utkarsh Gupta](https://www.youtube.com/channel/UCGS5ZzcSAymQbWZvNoKOFhQ)
 - [take U forward](https://www.youtube.com/channel/UCJskGeByzRRSvmOyZOz61ig)
+- [Pep-coding](https://www.youtube.com/channel/UC7rNzgC2fEBVpb-q_acpsmw)
 
     
 ## Support
