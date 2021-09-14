@@ -59,6 +59,9 @@ void main_code()
 
 signed main()
 {
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
+	
     if(FASTIO)
     {
         ios_base::sync_with_stdio(false);
