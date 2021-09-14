@@ -1,0 +1,11 @@
+1. Find maximum no. of intervals to select with no overlap. (Jump Scheduling - I)
+--> Jump Problem (DP but like Kedans)
+
+
+2. Find minimum no. of intervals to select with minimum overlap. (Jump -II)
+--> DP solution (Job Scheduling problem)
+
+
+3. Find maximum no. of intervals which overlap at a point? (Maximum no. of train platforms problem)
+--> Use a counter variable and add 1 when an interval starts and subtract 1 when an interval ends.
+    max of counter is ans.
