@@ -50,3 +50,11 @@ public:
         return s.substr(start,end-start+1);   
     }
 };
+
+
+/*
+* Alternte Soln can be made from observation that palindrome has same elements from center.
+* So choose center and find left of center and right of center as 2 pointers compare and get length.
+* Optimization - if(isPalindrome(i,j)) is true and S[i-1] == S[j+1] then isPalindrome(i-1,j+!1) is also true.
+* This operation is to be done for odd as well as even. O(n) Time and O(1) Space.
+*/
