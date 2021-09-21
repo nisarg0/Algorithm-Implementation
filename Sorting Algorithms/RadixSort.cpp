@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// Time Complexcity = O(d*(n)) 
-// where d is max no. of didgits in a number and n is size of ar
+// Time Complexcity = O(d*n) 
+// where d is max no. of digits in a number and n is size of ar
 // Ref -> https://www.youtube.com/watch?v=a5e7RgCdel0
 
 // Question -> Max Gap Leetcode
