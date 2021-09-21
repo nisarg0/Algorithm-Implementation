@@ -75,7 +75,7 @@ int find_pivot(vector<int> &arr) {
                 lo = mid+1;
         }
         else{
-            if(arr[mid] > arr[mid-1])
+            if(arr[mid-1] > arr[mid])
                 return mid-1;
             else
                 hi = mid-1;
