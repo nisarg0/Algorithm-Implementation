@@ -1,5 +1,5 @@
 // Reference -> https://www.youtube.com/watch?v=7FmL-WpTTJ4
-// We are using bitmask to store the numbers between 1 and 10 (in integers)
+// We are using bitmask to store the numbers between 1 and 10 (in integers) [Each bit represents a subset of intergers 1 to 10]. 15 represents set with 1,2,3,4.]
 // left shifting (x<<y) is equivalent to multiplying x with 2^y 
 // right shifting (x>>y) is equivalent to dividing x with 2^y. 
 
