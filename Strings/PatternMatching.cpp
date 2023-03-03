@@ -102,3 +102,18 @@ int main() {
         cout << index << " ";
     }
 }
+
+
+/**
+ * @brief Addition to this problem:
+ * Find number of unique substring in a string
+ * - Get hash for all substrings of length m (O(n*n))
+ * - Store them in a set and get the size of set
+ * 
+ * This method will mostly work as probablity of collision is approx: 1/q ie. 1/10007 = 0.0001% 
+ * if we increase q to 10^9 then probablity of collision will be 0.000000001%
+ * 
+ * Read more : https://cp-algorithms.com/string/string-hashing.html#determine-the-number-of-different-substrings-in-a-string
+ * 
+ * It can be improved by using larger q (10^18) and using a good hash function 
+ */
