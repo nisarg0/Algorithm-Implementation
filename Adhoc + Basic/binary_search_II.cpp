@@ -1,6 +1,21 @@
 // Reference --> https://www.youtube.com/watch?v=U66U1-umNbQ&t=1s
 // Reference --> https://www.youtube.com/watch?v=V343UXw4P3Y
 
+// upper bound return first element which is >value. If not, return end().
+// lower bound return first element which is ≥value. If not, return end().
+
+/*
+Elements are : 1 3 5 7 9 
+******* lower_bound *********
+lower bound of 5 in the set is: 5
+lower bound of 1 in the set is: 1
+lower bound of 4 in the set is: 5
+****** upper_bound ************
+upper bound of 5 in the set is: 7
+upper bound of 1 in the set is: 3
+upper bound of 4 in the set is: 5
+*/
+
 #include<bits/stdc++.h> 
 using namespace std;
 
