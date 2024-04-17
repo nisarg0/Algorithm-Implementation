@@ -2,6 +2,21 @@
 
 We have not written all of these algos ourselves. This is merely a small collection of easy and beautiful solutions to complex problems. We have added reference links and questions on top of each file for further references. Feel free to star mark and fork :D
 
+```
+Common time complexities
+
+Let n be the main variable in the problem.
+
+If n ≤ 12, the time complexity can be O(n!).
+If n ≤ 25, the time complexity can be O(2n).
+If n ≤ 100, the time complexity can be O(n4).
+If n ≤ 500, the time complexity can be O(n3).
+If n ≤ 104, the time complexity can be O(n2).
+If n ≤ 106, the time complexity can be O(n log n).
+If n ≤ 108, the time complexity can be O(n).
+If n > 108, the time complexity can be O(log n) or O(1).
+```
+
 ## Features
 - Quick access to segregated codes.
 - Easy to understand yet small solutions.
