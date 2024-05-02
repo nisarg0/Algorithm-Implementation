@@ -1,87 +1,76 @@
-// We can use stl container list as a double 
-// ended queue to store the cache keys, with 
-// the descending time of reference from front 
-// to back and a set container to check presence 
-// of a key. But to fetch the address of the key 
-// in the list using find(), it takes O(N) time. 
-// This can be optimized by storing a reference 
-//	 (iterator) to each key in a hash map. 
-#include <bits/stdc++.h> 
-using namespace std; 
+// We can use stl container list as a double
+// ended queue to store the cache keys, with
+// the descending time of reference from front
+// to back and a set container to check presence
+// of a key. But to fetch the address of the key
+// in the list using find(), it takes O(N) time.
+// This can be optimized by storing a reference
+//	 (iterator) to each key in a hash map.
 
-class LRUCache { 
-	// store keys of cache 
-	list<int> dq; 
+// Refer : https : // leetcode.com/problems/lru-cache/ my solutions
 
-	// store references of key in cache 
-	unordered_map<int, list<int>::iterator> mp; 
-	int csize; // maximum capacity of cache 
+#include <bits/stdc++.h>
+using namespace std;
 
-public: 
-	LRUCache(int); 
-	void refer(int); 
-	void display(); 
-}; 
+class LRUCache
+{
+	int capacity;
+	list<pair<int, int>> dq; // key, value pair
 
-// Declare the size 
-LRUCache::LRUCache(int n) 
-{ 
-	csize = n; 
-} 
+	// store references of key in cache
+	unordered_map<int, list<pair<int, int>>::iterator> mp;
 
-// Refers key x with in the LRU cache 
-void LRUCache::refer(int x) 
-{ 
-	// not present in cache 
-	if (mp.find(x) == mp.end()) { 
-		// cache is full 
-		if (dq.size() == csize) { 
-			// delete least recently used element 
-			int last = dq.back(); 
+public:
+	LRUCache(int capacity)
+	{
+		this->capacity = capacity;
+	}
 
-			// Pops the last elmeent 
-			dq.pop_back(); 
+	int get(int key)
+	{
+		if (mp.find(key) == mp.end())
+			return -1;
 
-			// Erase the last 
-			mp.erase(last); 
-		} 
-	} 
+		int value = mp[key]->second;
+		dq.erase(mp[key]);
+		dq.push_front({key, value});
+		mp[key] = dq.begin();
 
-	// present in cache 
-	else
-		dq.erase(mp[x]);
+		return value;
+	}
 
-	// update reference 
-	dq.push_front(x); 
-	mp[x] = dq.begin(); 
-} 
+	void put(int key, int value)
+	{
+		if (mp.find(key) == mp.end())
+		{
+			if (dq.size() == capacity)
+			{
+				pair<int, int> last = dq.back();
+				dq.pop_back();
+				mp.erase(last.first);
+			}
+		}
+		else
+		{
+			dq.erase(mp[key]);
+		}
+		dq.push_front({key, value});
+		mp[key] = dq.begin();
+	}
+};
 
-// Function to display contents of cache 
-void LRUCache::display() 
-{ 
+// Driver Code
+int main()
+{
+	LRUCache ca(4);
 
-	// Iterate in the deque and print 
-	// all the elements in it 
-	for (auto it = dq.begin(); it != dq.end(); 
-		it++) 
-		cout << (*it) << " "; 
-
-	cout << endl; 
-} 
-
-// Driver Code 
-int main() 
-{ 
-	LRUCache ca(4); 
-
-	ca.refer(1); 
-	ca.refer(2); 
-	ca.refer(3); 
-	ca.refer(1); 
-	ca.refer(4); 
-	ca.refer(5); 
-	ca.display(); 
-
-	return 0; 
-} 
-// This code is contributed by Satish Srinivas 
+	ca.put(1, 2);
+	ca.put(2, 3);
+	ca.put(3, 2);
+	ca.put(1, 2);
+	cout << ca.get(4) << "\n";
+	ca.put(4, 1);
+	cout << ca.get(4) << "\n";
+	ca.put(5, 6);
+	return 0;
+}
