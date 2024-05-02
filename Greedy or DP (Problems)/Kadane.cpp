@@ -1,7 +1,7 @@
 // Find max_sum of sub array
 int kadane(vector<int> arr) {
     int n = arr.size(),i,ans_sum=0,curr_sum = arr[0];
-    for(i=0;i<n;i++){
+    for(i=1;i<n;i++){
         curr_sum = max(arr[i],curr_sum+arr[i]);
         ans_sum = max(ans_sum,curr_sum);
     }
