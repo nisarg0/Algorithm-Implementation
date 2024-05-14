@@ -1,7 +1,9 @@
 /*
 Minimum distance of src from every other node present in graph with all non-negative weights
-Complexity for dijktra's Algo -> O(E+VlnV)  
+Complexity for dijktra's Algo -> O(E+VlnV) 
 E-Edges V-Vertices
+
+Slight modification: Think of adding a virtual node which joins an edge to each node. [Similar to multi source BFS]
 */
 #include<bits/stdc++.h>
 #define LIM 3000
