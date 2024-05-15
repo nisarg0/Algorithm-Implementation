@@ -3,6 +3,8 @@
 We can  peform multisorurce bfs also for the problems of type 
 1. there are k hospitals and n cities and they are connected so find closest hostila form each city
 Add all hospitals as src and do bfs on unvisited nodes so ...
+
+Time complexity: O(V + E)
 */
 #include<bits/stdc++.h>
 #define LIM 3000
