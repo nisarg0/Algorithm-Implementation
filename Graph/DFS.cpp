@@ -3,6 +3,9 @@
 We can  peform multisorurce bfs also for the problems of type 
 1. there are k hospitals and n cities and they are connected so find closest hostila form each city
 Add all hospitals as src and do bfs on unvisited nodes so ...
+
+Time Complexity: O(V + E)
+
 */
 #include<bits/stdc++.h>
 #define LIM 3000
@@ -86,8 +89,4 @@ int main()
     cout<<"Enter source node for recursive dfs: ";
     cin>>src;
     cout<<"Recursive_DFS=> ";
-    
-  
-    
-
 }
