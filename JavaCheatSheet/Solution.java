@@ -26,6 +26,12 @@ class BasicCollections {
             System.out.println(ele);
         });
 
+       /**
+        * HashMap Details:
+        * 1. Data is stored as Linked list in each bucket
+        * 2. In case of high collision (TREEIFY_THRESHOLD, default is 8), it's converted to Red black tree
+        * 3. Load Factor: (default 0.75) Number of entries in map if exceeds it, double the bucket count
+        */
         HashMap<String, Integer> map = new HashMap<>();
         map.put("Nisarg", 1);
         map.put("Nikhil", 1);
