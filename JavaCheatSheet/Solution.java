@@ -13,8 +13,11 @@ class BasicStreams {
                                   .collect(Collectors.toList()); // Alice
 
     Optional<String> any = names.stream().findAny();
+    Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
+
 
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
 
     // Identity is used inside reduce, basically it has its arg type and return type same
     Optional<Integer> sum = numbers.stream().reduce(Integer::sum); // sum = 15
@@ -38,6 +41,9 @@ class BasicCollections {
         list.remove(0);         // [2, 3]           | Time Complexcity = O(n)
         System.out.println(list.get(1)); // 3
         
+        Collections.sort(list);
+        Collections.sort(list, Collections.reverseOrder());
+
         List<Integer> list2 = new LinkedList<>();
         
         Set<Integer> set = new HashSet<>();
@@ -84,6 +90,7 @@ class BasicJava {
         int [] arrDeclared = {1,2,3,4,5,6,7,8,9};
 
         Arrays.sort(arr);
+        Arrays.sort(arr, (a,b) -> b-a); // Sort in descending order
 
         int[][] arr2d = new int[n][m];
         int[][] arr2dDeclared = {{1,2,3},{4,5,6},{7,8,9}};
