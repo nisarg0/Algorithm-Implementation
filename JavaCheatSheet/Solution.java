@@ -16,7 +16,11 @@ class BasicStreams {
     Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
 
 
-    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+    List<List<Integer>> numbers = Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4));
+    List<Integer> flattenedList = numbers.stream()
+                                        .flatMap(List::stream)
+                                        .collect(Collectors.toList());
+    // Output: [1, 2, 3, 4]
 
 
     // Identity is used inside reduce, basically it has its arg type and return type same
