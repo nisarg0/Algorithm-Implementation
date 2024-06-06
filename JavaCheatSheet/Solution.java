@@ -1,6 +1,32 @@
 package JavaCheatSheet;
 
 import java.util.*;
+import java.util.stream.Stream;
+
+// Streams are faster and can run parallely leading to better CPU utilization
+// Chaining of operations helps save time
+class BasicStreams {
+    List<String> names = Arrays.asList("John", "Alice", "Bob", "Carol");
+    List<String> filteredWords = names.stream()
+                                  .map(String::toUpperCase)
+                                  .filter(name -> name.startsWith("A"))
+                                  .collect(Collectors.toList()); // Alice
+
+    Optional<String> any = names.stream().findAny();
+
+    List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+    // Identity is used inside reduce, basically it has its arg type and return type same
+    Optional<Integer> sum = numbers.stream().reduce(Integer::sum); // sum = 15
+    Optional<Integer> prod = numbers.stream().reduce((a,b) -> a*b); // prod = 120
+    Optional<Integer> max = numbers.stream().reduce(Integer::max); // max = 5
+
+    System.out.println("sum = " + sum.getOrDefault(0));
+
+    // Stream.of() is used to create a stream from an array
+    Stream<String> namesStream = Stream.of("John", "Alice", "Bob", "Carol");
+
+}
 
 class BasicCollections {
     BasicCollections() {
@@ -76,7 +102,6 @@ class BasicJava {
 
 class Solution {
     public static void main(String[] args) {
-        // Reader reader = new Reader();
 
         BasicJava basicJava = new BasicJava();
         BasicCollections basicCollections = new BasicCollections();
