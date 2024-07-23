@@ -22,9 +22,28 @@ int length_LIS(int arr[], int n)
     }
   return aux.size();
 
-} 
+}
 
-void find_LIS(int arr[],int n)
+// We can get exact LIS by using parent array.
+void find_LIS(int arr[], int n) {
+	vector<int> dp(n, 1); // dp[i] = longest sub seq till i where ith element is part of it
+	int ans = 0;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < i; j++) {
+			if (arr[i] > arr[j])
+				dp[i] = max(dp[i], dp[j] + 1);
+		}
+	}
+
+	for(int i = 0; i < n; i++)
+		ans = max(ans, dp[i]);
+
+	cout << "Length of LIS is " << ans << endl;
+}
+
+// Time Complexcity O(N log N)
+void find_LIS_Optimizd(int arr[],int n)
 {
     vector<int> aux(n, 0);
 	vector<vector<int>> parent(n);
@@ -33,28 +52,23 @@ void find_LIS(int arr[],int n)
 
 	parent[0].push_back(arr[0]);
 	int aux_size = 1;
-	for (int i = 1; i < n; i++) 
-    {
-
+	for (int i = 1; i < n; i++) {
 		auto it =lower_bound(aux.begin(), aux.begin() + aux_size, arr[i]);
 
-		if (it == aux.begin() + aux_size) 
-        {
+		if (it == aux.begin() + aux_size) {
 			aux[aux_size] = arr[i];
 						
 			parent[aux_size] = parent[aux_size - 1];
 			parent[aux_size].push_back(arr[i]);
 			aux_size++;
 		}
-		else 
-        {
+		else {
 			if (*it != arr[i]) {
 				aux[it- aux.begin()] = arr[i];
 				
 				parent[it - aux.begin()][parent[it - aux.begin()].size() - 1] = arr[i];
 			}
 		}
-
 	}
 
 	cout << "length " << aux_size << endl;
@@ -73,7 +87,8 @@ int main()
     cout << "Length of LIS is :" << length_LIS(arr,n) << endl;
 
     // Print the LIS
-    find_LIS(arr,n);
+    length_LIS(arr,n);
+	find_LIS(arr, n);
 }
 
 // Intersting question :
