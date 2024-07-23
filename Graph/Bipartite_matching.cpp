@@ -1,7 +1,7 @@
 /**
  * @file Bipartite_matching.cpp
  * @author Nisarg
- * @brief Question: Given n job appplicants and m jobs. Given ith applicant with offerletter from jth job
+ * @brief Question: Given n job appplicants and m jobs. Given ith applicant with letter from jth job
  * Find maximum number of job applicants which can get a job. jobs[i][j] = 1 / 0
  *
  * @ref: https://www.geeksforgeeks.org/maximum-bipartite-matching/
@@ -32,7 +32,7 @@ bool findMaxBiPartiteMatching(int u)
     visited[u] = true;
 
     for (auto v : G[u]) {
-        // if currentMatching is available for v or if v can find some other job
+        // if current matching is available for v or if v can find some other job
         if ( currentMatching[v] == -1 || findMaxBiPartiteMatching(v) ) {
             currentMatching[v] = u;
             return true;
@@ -43,10 +43,10 @@ bool findMaxBiPartiteMatching(int u)
 
 int main()
 {
-    G = {{1, 2}, {0, 3}, {2}, {2, 3}, {}, {5}};
+    G = {{1, 2}, {0, 3}, {2}, {2, 3}, {}, {5}}; // job 0 has {1,2} selected applicants.
 
     int ans = 0;
-    for (int person = 0; person < n; person++)
+    for (int job = 0; job < m; job++)
     {
         visited.assign(n, false);
         if(findMaxBiPartiteMatching(person))
