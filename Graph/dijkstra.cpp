@@ -1,5 +1,5 @@
 /*
-Minimum distance of src from every other node present in graph with all non-negative weights
+A minimum distance of src from every other node present in graph with all non-negative weights (optimized algo) OR Negative weighted a-cyclic graph (Non-optimized Algo)
 Complexity for dijktra's Algo -> O((V + E) log V)
 E-Edges V-Vertices
 
@@ -48,6 +48,7 @@ void dijktra(int src)
             // There are multiple copies of same node in pq with different weights
             // if min_dist[node] is less than d then there is no way that any other node
             // which can be reached via this path with lesser dist.
+            // NOTE: Removing this condn will allow negative weights in Dijkstra's algo
             if(min_dist[next] < d)
                 continue;
             
