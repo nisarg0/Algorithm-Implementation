@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Generates heap from ith node and it's children.
 void heapify(vector<int> &arr, int n, int i)
 {
     int largest = i; // Initialize largest as root
@@ -31,7 +32,8 @@ void heapify(vector<int> &arr, int n, int i)
 // main function to do heap sort
 void heapSort(vector<int> &arr, int n)
 {
-    // Build heap (rearrange array)
+    // Build heap (rearrange array) 
+    // We did this from n/2-1 -> 0 b'coz for a complete binary tree last n/2 elements are leave nodes.
     for (int i = n / 2 - 1; i >= 0; i--)
         heapify(arr, n, i);
 
