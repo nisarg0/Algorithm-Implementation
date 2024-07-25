@@ -24,6 +24,20 @@ int length_LIS(int arr[], int n)
 
 }
 
+// This is O(n^2) soln which can be eventually used to find the the exact LIS
+int lengthLIS1(vector<int> arr) {
+	int n = arr.size();
+	vector<int> dp(n, 1); // dp[i] = 1 as LIS can be itself
+
+	for(int i=0; i<n; i++) {
+		for (int j=0; j<i; j++) {
+			if(arr[j] < arr[i] ) 
+				dp[i] = max(dp[i], arr[j]+1);
+		}
+	}
+	return dp[n-1];
+}
+
 // We can get exact LIS by using parent array.
 void find_LIS(int arr[], int n) {
 	vector<int> dp(n, 1); // dp[i] = longest sub seq till i where ith element is part of it
