@@ -3,6 +3,7 @@
  * @author Nisarg
  * @brief Multi Source shortest path algorithm. Find shortest paths from all nodes to all other nodes.
  * Logic: dist[i][j] =  min (dist[i][j]],dist[i][k] + dist[k][j])
+ * Time complexity: O(V^3)
  * @date 2024-07-28
  */
 
