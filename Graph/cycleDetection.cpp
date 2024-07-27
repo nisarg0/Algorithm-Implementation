@@ -13,6 +13,7 @@ using namespace std;
 
 vector<int> G[LIM];
 
+// Other way of doing this is by bipartiate coloring
 bool isCyclicInDirectedGraph(int n, vector<int> inDegree) {
 
     int i;
