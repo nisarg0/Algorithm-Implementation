@@ -2,6 +2,8 @@
  * @file LCS.cpp
  * @author Nisarg
  * @brief Longest comman Subsequence in given two strings
+ * NOT HERE APPLICABLE:  // By iterating in reverse order in the inner loop. we can further optmized on space to use single dp array/
+ * ex. Soln 4: https://leetcode.com/problems/partition-equal-subset-sum/editorial/
  * 
  */
 
@@ -47,7 +49,6 @@ void LCS(string a, string b) {
     reverse(ans.begin(), ans.end());
     cout << "Longest common subsequence is " << ans << endl;
 }
-
 
 void LCS_SpaceOptmized(string a, string b) {
     int n = a.size(), m = b.size();
