@@ -1,4 +1,7 @@
 // Find max_sum of sub array
+// Question? Why should curr_sum start with arr[i] and not with something before ith index? 
+// Assume started from start => Case 1: (some -ve sum) + arr[j] - we will already started from arr[j].
+                             => Case 2: (Some +ve sum) + arr[j] - It's already part of curr_sum.
 int kadane(vector<int> arr) {
     int n = arr.size(),i,ans_sum=0,curr_sum = arr[0];
     for(i=1;i<n;i++){
