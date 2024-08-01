@@ -35,6 +35,7 @@ int findRandom(vector<int> arr)
 }
 
 // getting random index based on weight in a stream on weights
+// print randomNum when 0 comes in stream
 int weightedRandomIndex(const std::vector<int>& weights) {
     double totalWeight = 0;
     int selectedIndex = -1;
