@@ -34,6 +34,22 @@ int findRandom(vector<int> arr)
     return reservoir;
 }
 
+// getting random index based on weight in a stream on weights
+int weightedRandomIndex(const std::vector<int>& weights) {
+    double totalWeight = 0;
+    int selectedIndex = -1;
+
+    for (int i = 0; i < weights.size(); ++i) {
+        if (weights[i] == 0) cout << selectedIndex;
+
+        totalWeight += weights[i];
+        if (((double)rand()) / RAND_MAX * totalWeight < weights[i]) {
+            selectedIndex = i;
+        }
+    }
+    return selectedIndex;
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
