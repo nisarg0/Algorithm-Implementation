@@ -3,7 +3,7 @@
  * Yes. We create a reserviour of size 1 (single element).
  * We iterate over the stream and for each element we have a probability of 1/i to replace the element in the reserviour.
  * This is because the probability of not replacing the element is (i-1)/i and the probability of replacing the element is 1/i.
- * So the probability of not replacing the element after i iterations is (i-1)/i * (i-2)/i-1 * ... * 1/i = 1/i.
+ * So the probability of not replacing the element after i iterations is (i-1)/i * (i-2)/i-1 * ... * 1/2 = 1/i.
  *
  * Ref: https://www.youtube.com/watch?v=A1iwzSew5QY
  * Que: https://leetcode.com/problems/linked-list-random-node/
@@ -32,6 +32,23 @@ int findRandom(vector<int> arr)
     }
 
     return reservoir;
+}
+
+// getting random index based on weight in a stream on weights
+// print randomNum when 0 comes in stream
+int weightedRandomIndex(const std::vector<int>& weights) {
+    double totalWeight = 0;
+    int selectedIndex = -1;
+
+    for (int i = 0; i < weights.size(); ++i) {
+        if (weights[i] == 0) cout << selectedIndex;
+
+        totalWeight += weights[i];
+        if (((double)rand()) / RAND_MAX * totalWeight < weights[i]) {
+            selectedIndex = i;
+        }
+    }
+    return selectedIndex;
 }
 
 int main()

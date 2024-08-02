@@ -1,5 +1,8 @@
 #include<bits/stdc++.h>
 // Time Complexity: O(V + E)
+// A slight modification of question: Find 2nd fastest way of reaching from source to destination. in Undirected ascyclic graph.
+// Fastest way is using normal BFS. Here we'll ne two dist arrays. dist1[]stroring 1st time we encounter a num. dist2[] we encountering 2nd time.
+//https://www.youtube.com/watch?v=_rnQKrA9xzA&t=436s&ab_channel=codestorywithMIK
 using namespace std;
 #define LIM 1007
 

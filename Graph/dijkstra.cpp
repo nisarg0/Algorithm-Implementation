@@ -4,6 +4,9 @@ Complexity for dijktra's Algo -> O((V + E) log V)
 E-Edges V-Vertices
 
 Slight modification: Think of adding a virtual node which joins an edge to each node. [Similar to multi source BFS]
+
+Dikjtras can be applied 3-4 times... you reverse graph... node a to src and dest dist
+https://leetcode.com/problems/minimum-weighted-subgraph-with-the-required-paths/description/
 */
 #include<bits/stdc++.h>
 #define LIM 3000
