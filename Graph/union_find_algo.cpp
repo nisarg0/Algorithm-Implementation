@@ -4,7 +4,7 @@
     Time  & Space complexcity if done by Graph O(n) & O(n)
     Time  & Space complexcity in case of disjoint set O(m*4) & O(n)
         : m is the number of operations being performed on this dijoint set
-
+    https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends
     Ref: https://www.youtube.com/watch?v=Kptz-NVA2RE
 */
 
@@ -13,15 +13,17 @@
 using namespace std;
 
 vector<int> parent; // Keeps track of group representative/parent
-vector<int> rnk;    // Keeps track of rank of each element (Rank of leaf is 0 and increase as we go near roor)
+vector<int> sz;     // Keeps track of num of elements in children below this node
 
 // Init the array with each element as it's parent
 void init(int n)
 {
+    parent.resize(n);
+    sz.resize(n);
     for (int i = 0; i < n; i++)
     {
-        parent.push_back(i);
-        rnk.push_back(0);
+        parent[i] = i;
+        sz[i] = 1;
     }
 }
 
@@ -32,7 +34,7 @@ int find(int x)
     if (parent[x] == x)
         return x;
 
-    return parent[x] = find(parent[x]);
+    return parent[x] = find(parent[x]); // remember to call it for parent[x]
 }
 
 // Joins sets of x to y. Based on the rank of parent for minimum time complexcity.
@@ -44,15 +46,17 @@ void weightedUnion(int x, int y)
     if (xRoot == yRoot)
         return;
 
-    if (rnk[xRoot] < rnk[yRoot])
+    if (sz[xRoot] < sz[yRoot])
+    {
         parent[xRoot] = yRoot;
-    else if (rnk[yRoot] < rnk[xRoot])
-        parent[yRoot] = xRoot;
+        sz[yRoot] += sz[xRoot];
+    }
     else
     {
         parent[yRoot] = xRoot;
-        rnk[xRoot] = rnk[xRoot] + 1;
+        sz[xRoot] += sz[yRoot];
     }
+    
 }
 
 // n - number of fiends
