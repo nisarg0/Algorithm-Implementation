@@ -3,6 +3,9 @@ A minimum distance of src from every other node present in graph with all non-ne
 Complexity for dijktra's Algo -> O((V + E) log V)
 E-Edges V-Vertices
 
+We may add same node multiple times, hence total elements in a heap might be E. Hence, log(E).
+Intreasting thing is to E = V*(V-1) => 2*log(V).
+
 Slight modification: Think of adding a virtual node which joins an edge to each node. [Similar to multi source BFS]
 
 Dikjtras can be applied 3-4 times... you reverse graph... node a to src and dest dist
@@ -43,17 +46,15 @@ void dijktra(int src)
         int curr = pq.top().second;
         pq.pop();
 
+        // Optimized to not traverse children if minDist which was encountered earlier was better
+        // This helps avoid traversing children if we already have a miniDist smaller traversed earlier
+        if( curr > min_dist[curr])
+            continue;
+
         for(auto u : adj[curr])
         {
             int next = u.first;
             int d = u.second;
-
-            // There are multiple copies of same node in pq with different weights
-            // if min_dist[node] is less than d then there is no way that any other node
-            // which can be reached via this path with lesser dist.
-            // NOTE: Removing this condn will allow negative weights in Dijkstra's algo
-            if(min_dist[next] < d)
-                continue;
             
             //If previous distance is more than the new distance
             if(min_dist[next] > min_dist[curr]+d)
