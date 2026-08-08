@@ -16,7 +16,7 @@ double get_angle(double x, double y) {
 double positive_modulo(double value, double modulus) {
     return std::fmod(std::fmod(value, modulus) + modulus, modulus);
 }
-
+ 
 bool can_draw_line(const Case& line_segments) {
     // Transform line segments into ranges of angles.
     std::vector<std::pair<double, double>> angles;
